@@ -1,11 +1,15 @@
 import { getUsers } from "@/app/functions/handlerAcessAPI";
+import { Suspense } from "react";
+import { ListUsers } from "@/app/functions/componentes/ListUsers";
 
 export default async function Dashboard() {
-   let pessoas = getUsers();
+   const users = await getUsers();
     return (
         <div>
-            {pessoas.map(user => (<h1>{user.name}</h1>))}
-            
+            <Suspense fallback={<p>Carregando...</p>}>
+            <ListUsers users={users}/>
+            </Suspense>
         </div>
+
     );
 };

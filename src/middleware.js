@@ -7,16 +7,16 @@ export const middleware = (request) => {
     const token = request.cookies.get('token')?.value;
     const urlLogin = new URL('/', request.url);
     const isTokenValidated = validateToken(token);
-    const urlDasDashboard = new URL('/pages/dashboard', request.url)
+    const urlDashboard = new URL('/pages/dashboard', request.url)
 
     if (!isTokenValidated || !token) {
         if (request.nextUrl.pathname === '/pages/dashboard') {
             return NextResponse.redirect(urlLogin);
         }
     }
-    if (isTokenValidated || token) {
+    if (isTokenValidated) {
         if (request.nextUrl.pathname === '/') {
-            return NextResponse.redirect('/pages/dashboard');
+            return NextResponse.redirect(urlDashboard);
         }
     }
     NextResponse.next();
