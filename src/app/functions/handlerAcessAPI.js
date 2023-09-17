@@ -24,16 +24,16 @@ const getUser = [
 ]
 
 
-const getUserAuthenticated = (userLogin) => {
-    let userconfirm = {};
+const getUserAuthenticated = (confirmUser) => {
+    let getUserconfirm = [];
     
-    getUser.map((user) =>{
-        if(user.email === userLogin.email && user.password === userLogin.password){
-            userconfirm = user
+    getUser.map((getUser) =>{
+        if(getUser.email === confirmUser.email && getUser.password === confirmUser.password){
+            getUserconfirm = getUser
         }
     })
 
-    return userconfirm
+    return getUserconfirm
 }
     
 
