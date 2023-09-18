@@ -2,7 +2,7 @@
 import { getUsers } from "@/app/functions/handlerAcessAPI";
 import { Suspense } from "react";
 import ListUsers from "@/app/componentes/ListUsers";
-import styles from '../main.module.css';
+import styles from '../pages.module.css';
 
 export default async function Dashboard() {
    const users = await getUsers();
